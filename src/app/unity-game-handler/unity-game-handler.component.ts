@@ -9,7 +9,7 @@ export class UnityGameHandlerComponent implements AfterViewInit{
   ngAfterViewInit(): void {
 
     const script = document.createElement('script');
-    script.src = "assets/dune_io/Build/unity.loader.js";
+    script.src = "assets/dune_io/Build/dune_io.loader.js";
     script.onload = (ev) => {
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
@@ -28,9 +28,9 @@ export class UnityGameHandlerComponent implements AfterViewInit{
 
       // @ts-ignore
       createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "assets/dune_io/Build/unity.data",
-        frameworkUrl: "assets/dune_io/Build/unity.framework.js",
-        codeUrl: "assets/dune_io/Build/unity.wasm",
+        dataUrl: "assets/dune_io/Build/dune_io.data",
+        frameworkUrl: "assets/dune_io/Build/dune_io.framework.js",
+        codeUrl: "assets/dune_io/Build/dune_io.wasm",
         streamingAssetsUrl: "assets/dune_io/StreamingAssets",
         companyName: "DefaultCompany",
         productName: "dune.io",

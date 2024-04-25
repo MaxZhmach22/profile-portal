@@ -21,10 +21,6 @@ npm-debug.log
 Thumbs.db
 # Файлы локализации Angular i18n
 /src/locale
-# Файлы конфигурации Angular
-/angular.json
-# Файлы конфигурации TypeScript
-tsconfig.*
 # Файлы конфигурации TSLint
 tslint.*
 # Файлы окружения Angular

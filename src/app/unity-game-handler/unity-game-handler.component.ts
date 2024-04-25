@@ -28,9 +28,9 @@ export class UnityGameHandlerComponent implements AfterViewInit{
 
       // @ts-ignore
       createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "assets/unity/Build/unity.data.br",
-        frameworkUrl: "assets/unity/Build/unity.framework.js.br",
-        codeUrl: "assets/unity/Build/unity.wasm.br",
+        dataUrl: "assets/unity/Build/unity.data",
+        frameworkUrl: "assets/unity/Build/unity.framework.js",
+        codeUrl: "assets/unity/Build/unity.wasm",
         streamingAssetsUrl: "assets/unity/StreamingAssets",
         companyName: "DefaultCompany",
         productName: "dune.io",

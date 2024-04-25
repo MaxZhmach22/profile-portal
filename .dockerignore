@@ -1,0 +1,31 @@
+# Файлы и папки системы контроля версий
+.git
+.gitignore
+# Папка с зависимостями
+node_modules
+# Файлы среды разработки
+.editorconfig
+.vscode
+# Локальный кэш npm
+npm-debug.log
+# Файлы сборки Angular
+/dist
+# Файлы настроек IDE
+*.sublime-*
+*.idea/
+*.vs/
+*.swp
+*.swo
+# Файлы операционной системы
+.DS_Store
+Thumbs.db
+# Файлы локализации Angular i18n
+/src/locale
+# Файлы конфигурации Angular
+/angular.json
+# Файлы конфигурации TypeScript
+tsconfig.*
+# Файлы конфигурации TSLint
+tslint.*
+# Файлы окружения Angular
+/src/environments

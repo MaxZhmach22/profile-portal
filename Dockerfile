@@ -4,11 +4,11 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-RUN npm run ng build
+RUN npm run ng serve --port 4200
 
 # Стадия запуска
-FROM nginx
-COPY --from=build /app/dist/profile-portal /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/nginx.conf
+#FROM nginx
+#COPY --from=build /app/dist/profile-portal /usr/share/nginx/html
+#COPY nginx.conf /etc/nginx/nginx.conf
 
 

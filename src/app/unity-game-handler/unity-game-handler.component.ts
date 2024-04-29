@@ -1,4 +1,5 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit} from '@angular/core';
+import {APP_BASE_HREF} from "@angular/common";
 
 @Component({
   selector: 'app-unity-game-handler',
@@ -6,10 +7,15 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
   styleUrls: ['./unity-game-handler.component.css']
 })
 export class UnityGameHandlerComponent implements AfterViewInit{
+
+  constructor(@Inject(APP_BASE_HREF) private baseHref:string) {
+    console.log(this.baseHref, " is base HREF")
+  }
+
   ngAfterViewInit(): void {
 
     const script = document.createElement('script');
-    script.src = "assets/dune_io/Build/dune_io.loader.js";
+    script.src = `${this.baseHref}/assets/dune_io/Build/dune_io.loader.js`;
     script.onload = (ev) => {
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
@@ -28,10 +34,10 @@ export class UnityGameHandlerComponent implements AfterViewInit{
 
       // @ts-ignore
       createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "assets/dune_io/Build/dune_io.data",
-        frameworkUrl: "assets/dune_io/Build/dune_io.framework.js",
-        codeUrl: "assets/dune_io/Build/dune_io.wasm",
-        streamingAssetsUrl: "assets/dune_io/StreamingAssets",
+        dataUrl: `${this.baseHref}/assets/dune_io/Build/dune_io.data`,
+        frameworkUrl: `${this.baseHref}/assets/dune_io/Build/dune_io.framework.js`,
+        codeUrl: `${this.baseHref}/assets/dune_io/Build/dune_io.wasm`,
+        streamingAssetsUrl: `${this.baseHref}/assets/dune_io/StreamingAssets`,
         companyName: "DefaultCompany",
         productName: "dune.io",
         productVersion: "0.1",

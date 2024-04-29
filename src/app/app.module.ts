@@ -12,7 +12,6 @@ import { UnityGameHandlerComponent } from './unity-game-handler/unity-game-handl
   imports: [
     BrowserModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

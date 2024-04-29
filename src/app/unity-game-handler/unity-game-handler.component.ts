@@ -6,6 +6,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
   styleUrls: ['./unity-game-handler.component.css']
 })
 export class UnityGameHandlerComponent implements AfterViewInit{
+
   ngAfterViewInit(): void {
 
     const script = document.createElement('script');

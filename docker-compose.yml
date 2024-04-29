@@ -1,8 +1,0 @@
-services:
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile # Укажите здесь свой Dockerfile, если имя отличается
-    ports:
-      - "733:80" # Проброс порта 80 хоста на порт 80 контейнера
-    restart: always

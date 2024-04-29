@@ -10,8 +10,4 @@ FROM nginx
 COPY --from=build /app/dist/dune /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 
-CMD ["/bin/sh", "-c", \
-"echo API_URL=[$API_URL], && \
-sed -i s#base-href#base-href=https://zhmachinsky.art/dune/#g /usr/share/nginx/html/main.*.js"]
-
 

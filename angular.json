@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "https://profile-portal_dune_1:733",
+            "baseHref": "https://www.zhmachinsky.art:773",
             "outputPath": "dist/dune",
             "index": "src/index.html",
             "main": "src/main.ts",

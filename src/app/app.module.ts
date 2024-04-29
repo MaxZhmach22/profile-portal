@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { UnityGameHandlerComponent } from './unity-game-handler/unity-game-handler.component';
+import {APP_BASE_HREF} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { UnityGameHandlerComponent } from './unity-game-handler/unity-game-handl
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue: '/dune/app'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

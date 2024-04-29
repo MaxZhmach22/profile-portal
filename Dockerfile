@@ -4,11 +4,11 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-RUN npm run ng serve
+RUN npm run ng build
 
 # Стадия запуска
-#FROM nginx
-#COPY --from=build /app/dist/profile-portal /usr/share/nginx/html
-#COPY nginx.conf /etc/nginx/nginx.conf
+FROM nginx
+COPY --from=build /app/dist/profile-portal /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
 
 

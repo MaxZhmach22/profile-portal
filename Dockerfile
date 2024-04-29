@@ -4,7 +4,7 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-RUN npm run MSYS2_ARG_CONV_EXCL=--base-href= ng build --base-href=/dune/
+RUN ng build --base-href=/dune/
 
 # Стадия запуска
 FROM nginx

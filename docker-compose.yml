@@ -6,6 +6,8 @@ services:
     ports:
       - "733:733" # Проброс порта 733 хоста на порт 733 контейнера
     restart: always
-  networks:
-    docker-network:
-      external: true
+    networks:
+      - docker-network
+networks:
+  docker-network:
+    external: true

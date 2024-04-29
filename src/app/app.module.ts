@@ -13,7 +13,7 @@ import {APP_BASE_HREF} from "@angular/common";
   imports: [
     BrowserModule
   ],
-  providers: [{provide: APP_BASE_HREF, useValue: '/dune/app'}],
+  providers: [{provide: APP_BASE_HREF, useValue: '/dune'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

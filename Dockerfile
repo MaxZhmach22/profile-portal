@@ -4,7 +4,7 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-RUN npm run ng serve --port 4200
+RUN npm run ng serve
 
 # Стадия запуска
 #FROM nginx

@@ -4,6 +4,6 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-RUN npm run ng build -- -c production --base-href=https://www.zhmachinsky.art/dune/
+RUN npm run ng build -- -c production --base-href=/dune/
 
 

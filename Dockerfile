@@ -4,7 +4,7 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-RUN npm run ng build
+RUN npm run ng build -c production --base-href /dune/
 # Стадия запуска
 FROM nginx
 COPY --from=build /app/dist/dune /usr/share/nginx/html

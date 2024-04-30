@@ -4,10 +4,9 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-RUN npm run ng build -- -c production --base-href=http://45.159.189.118/dune/
+RUN npm run ng build -- -c production --base-href=/dune/
 # Стадия запуска
 FROM nginx
-COPY --from=build /app/dist/dune /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/dist/dune /usr/share/nginx/dune/html
 
 

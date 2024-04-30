@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "https://45.159.189.118:733/dune",
+            "baseHref": "/dune/",
             "outputPath": "dist/dune",
             "index": "src/index.html",
             "main": "src/main.ts",

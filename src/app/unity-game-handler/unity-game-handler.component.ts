@@ -1,17 +1,19 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
+import {decompress} from 'brotli-compress'
 
 @Component({
   selector: 'app-unity-game-handler',
   templateUrl: './unity-game-handler.component.html',
   styleUrls: ['./unity-game-handler.component.css']
 })
-export class UnityGameHandlerComponent implements AfterViewInit{
+export class UnityGameHandlerComponent implements AfterViewInit {
 
-  ngAfterViewInit(): void {
+  async ngAfterViewInit() {
 
     const script = document.createElement('script');
+
     script.src = "assets/dune_io/Build/dune_io.loader.js";
-    script.onload = (ev) => {
+    script.onload = async (ev) => {
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
         var meta = document.createElement('meta');
@@ -27,11 +29,15 @@ export class UnityGameHandlerComponent implements AfterViewInit{
         document.body.style.textAlign = "left";
       }
 
+      const dataUrl = await this.loadAndDecompressData("assets/dune_io/Build/dune_io.data.br");
+      const frameworkUrl = await this.loadAndDecompressData("assets/dune_io/Build/dune_io.framework.js.br");
+      const codeUrl = await this.loadAndDecompressData("assets/dune_io/Build/dune_io.wasm.br");
+
       // @ts-ignore
       createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "assets/dune_io/Build/dune_io.data",
-        frameworkUrl: "assets/dune_io/Build/dune_io.framework.js",
-        codeUrl: "assets/dune_io/Build/dune_io.wasm",
+        dataUrl: URL.createObjectURL(dataUrl),
+        frameworkUrl: URL.createObjectURL(frameworkUrl),
+        codeUrl: URL.createObjectURL(codeUrl),
         streamingAssetsUrl: "assets/dune_io/StreamingAssets",
         companyName: "DefaultCompany",
         productName: "dune.io",
@@ -41,5 +47,12 @@ export class UnityGameHandlerComponent implements AfterViewInit{
       });
     }
     document.body.appendChild(script);
+  }
+
+  private async loadAndDecompressData(url: any) {
+    const response = await fetch(url);
+    const compressedData = await response.arrayBuffer();
+    const decompressedData = await decompress(new Uint8Array(compressedData));
+    return new Blob([decompressedData], {type: 'application/wasm'});
   }
 }
